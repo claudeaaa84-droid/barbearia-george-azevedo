@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Barbearia e Studio George Azevedo | Agendamento</title>
+<meta name="description" content="Agende seu horário na Barbearia e Studio George Azevedo, Vila Barros, Guarulhos. Escolha os serviços e envie pelo WhatsApp.">
+
+<style>
+:root{--bg:#111111;--surface:#1c1c1e;--card:#2a2c31;--text:#f2f2f2;--muted:#9a9ca3;--line:#34363b;--g1:#a8243c;--g2:#4a0e1a;--ink:#ffffff;--user:#6b6e75;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+
+
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg)}
+.top .in{max-width:860px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
+.mark{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--ink);display:grid;place-items:center;font-weight:700;font-size:.9rem;flex:none}
+.top b{display:block;font-size:.82rem;line-height:1.25;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.top small{color:var(--muted);font-size:.76rem}
+.top .sp{flex:1}
+.top a{font-size:.8rem;color:var(--g1);text-decoration:none;font-weight:600}
+.wrap{max-width:860px;margin:0 auto;padding:32px 20px 48px}
+.bubble{width:fit-content;max-width:min(100%,640px);padding:16px 22px;border-radius:16px;margin:0 0 14px;font-size:.98rem;animation:in .35s ease both}
+.bot{background:linear-gradient(90deg,#9a1f35,#4a0e1a);color:#fff;font-weight:400}
+.me{background:linear-gradient(135deg,#74777e,#52545b);color:#f2f2f2;font-weight:400;margin-left:auto}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.panel{margin-top:26px;animation:in .35s ease both}
+.lbl{font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:10px}
+input[type=text]{width:100%;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font:inherit;outline:none}
+input[type=text]:focus{border-color:var(--g1)}
+.send{display:block;width:100%;margin-top:12px;border:0;border-radius:14px;padding:18px;font:inherit;font-weight:600;cursor:pointer;background:linear-gradient(180deg,#70727a,#54565d);color:#fff;border:0;transition:all .2s}
+.send.on{background:linear-gradient(135deg,var(--g1),var(--g2));color:var(--ink);border-color:transparent}
+.send:disabled{cursor:not-allowed}
+.car{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.car::-webkit-scrollbar{display:none}
+.svc{flex:0 0 min(78%,300px);scroll-snap-align:start;height:150px;border-radius:18px;border:1.5px solid transparent;background:linear-gradient(160deg,#3b3e45,#25272b);color:var(--text);padding:16px;text-align:left;font:inherit;cursor:pointer;position:relative;display:flex;flex-direction:column;justify-content:flex-end;transition:border-color .2s,transform .15s}
+.svc:hover{border-color:var(--muted)}
+.svc.inc{opacity:.45}
+.dia{flex:0 0 120px;height:96px}
+.hrs{display:grid;grid-template-columns:repeat(auto-fill,minmax(84px,1fr));gap:10px}
+.hr{background:linear-gradient(160deg,#3b3e45,#25272b);color:var(--text);border:1.5px solid transparent;border-radius:12px;padding:13px 0;font:inherit;cursor:pointer}
+.hr.sel{border-color:var(--g1);box-shadow:0 0 0 1px var(--g1)}
+.svc.sel{border-color:var(--g1);box-shadow:0 0 0 1px var(--g1);background:linear-gradient(160deg,color-mix(in srgb,var(--g1) 32%,var(--card)),var(--card))}
+.svc b{font-size:.98rem;font-weight:600}
+.svc span{color:var(--muted);font-size:.9rem}
+.svc i{position:absolute;top:14px;right:14px;width:22px;height:22px;border-radius:6px;background:#d5d6da;display:grid;place-items:center;color:var(--ink);font-style:normal;font-weight:700;font-size:.8rem}
+.svc.sel i{background:var(--g1)}
+.hintrow{display:flex;align-items:center;gap:14px;margin-top:12px}
+.track{flex:1;height:3px;background:var(--line);border-radius:3px;position:relative;overflow:hidden}
+.thumb{position:absolute;top:0;bottom:0;left:0;background:var(--g1);border-radius:3px}
+.hint{font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.sum{margin-top:20px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.sum ul{list-style:none;margin:8px 0 0;padding:0}
+.sum li{display:flex;justify-content:space-between;gap:12px;padding:5px 0;font-size:.94rem}
+.sum li span:last-child{color:var(--muted)}
+.tot{display:flex;justify-content:space-between;margin-top:10px;padding-top:12px;border-top:1px solid var(--line);font-weight:700}
+.tot span:last-child{color:var(--g1)}
+.fb{display:none;margin-top:12px;font-size:.85rem;color:var(--muted)}
+.fb a{color:var(--g1)}
+footer{max-width:860px;margin:0 auto;padding:8px 20px 40px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--line);padding-top:20px}
+footer a{color:var(--g1);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="top"><div class="in">
+  <div class="sp"></div>
+  <a id="trocar" href="#" hidden>Trocar nome</a>
+</div></div>
+
+<main class="wrap"><div id="chat"></div><div id="panel"></div></main>
+
+<footer>
+  Rua Carlos Korkischko, 158, Vila Barros, Guarulhos - SP · WhatsApp <a href="https://wa.me/5511983600871" target="_blank" rel="noopener">(11) 98360-0871</a> ·
+  <a href="https://www.google.com/maps/search/?api=1&query=Rua+Carlos+Korkischko+158+Vila+Barros+Guarulhos+SP" target="_blank" rel="noopener">Ver no mapa</a>
+</footer>
+
+<script>
+var WA='5511983600871', KEY='ga_nome';
+// Horário usado na escolha do horário (ajuste para o real): ini/fim em horas, passo em minutos, fechados: 0=domingo ... 6=sábado
+var HORARIO={ini:9,fim:18,passo:60,fechados:[0]};
+var SEM=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+function pad(n){return (n<10?'0':'')+n}
+function fmt(x){return pad(x.getDate())+'/'+pad(x.getMonth()+1)}
+function rotulo(x){return SEM[x.getDay()]+', '+fmt(x)}
+function slots(x){var out=[],now=Date.now();for(var m=HORARIO.ini*60;m<HORARIO.fim*60;m+=HORARIO.passo){var t=new Date(x);t.setHours(0,m,0,0);if(t.getTime()>now+3600000)out.push(pad(Math.floor(m/60))+':'+pad(m%60))}return out}
+var SVC=[["Corte de cabelo",40],["Barba",40],["Cabelo + barba",80],["Cabelo + barba + sobrancelha",90],["Sobrancelha",10],["Limpeza de pele",35],["Progressiva",70],["Relaxamento ou botox",50],["Hidratação ou matização",20]];
+var chat=document.getElementById('chat'), panel=document.getElementById('panel'), trocar=document.getElementById('trocar');
+function brl(n){return 'R$ '+n.toFixed(2).replace('.',',')}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms)})}
+function getName(){try{return localStorage.getItem(KEY)||''}catch(e){return ''}}
+function setName(v){try{localStorage.setItem(KEY,v)}catch(e){}}
+function clearName(){try{localStorage.removeItem(KEY)}catch(e){}}
+function bubble(t,c){var d=document.createElement('div');d.className='bubble '+c;d.textContent=t;chat.appendChild(d);d.scrollIntoView({behavior:'smooth',block:'end'});return d}
+async function bot(t){await sleep(450);bubble(t,'bot')}
+function el(h){var d=document.createElement('div');d.innerHTML=h;return d.firstElementChild}
+
+async function start(){
+  chat.innerHTML='';panel.innerHTML='';
+  var n=getName();
+  if(n){trocar.hidden=false;await bot('Que bom te ver de novo, '+n+'!');return askService(n)}
+  trocar.hidden=true;
+  await bot('Olá, tudo bem? Sou a assistente virtual da Barbearia e Studio George Azevedo e cuido do agendamento dos serviços, ok?');
+  await bot('Qual o seu nome? Escreva seu nome e sobrenome, por favor.');
+  var p=el('<div class="panel"><input type="text" id="nm" placeholder="Seu nome e sobrenome" autocomplete="name"><button class="send on" id="ok">Enviar</button></div>');
+  panel.appendChild(p);
+  var inp=p.querySelector('#nm');inp.focus();
+  function go(){var v=inp.value.trim();if(v.length<2){inp.focus();return}setName(v);panel.innerHTML='';trocar.hidden=false;bubble(v,'me');bot('Como vai, '+v+'! Tudo bem?').then(function(){askService(v)})}
+  p.querySelector('#ok').onclick=go;
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')go()});
+}
+
+async function askService(nome){
+  await bot('Por qual serviço você está procurando?');
+  var sel={};
+  var p=el('<div class="panel"><div class="lbl">Selecione os serviços:</div><div class="car" id="car"></div><div class="hintrow"><div class="track"><div class="thumb" id="th"></div></div><div class="hint">Arraste para o lado para ver mais</div></div><div class="sum" id="sum" hidden></div><button class="send" id="env" disabled>Enviar</button><div class="fb" id="fb"></div></div>');
+  panel.appendChild(p);
+  var car=p.querySelector('#car'), th=p.querySelector('#th'), sum=p.querySelector('#sum'), env=p.querySelector('#env'), fb=p.querySelector('#fb');
+  var nt=document.createElement('div');nt.style.cssText='min-height:1.3em;margin-top:10px;font-size:.85rem;color:var(--muted)';p.insertBefore(nt,sum);
+  var INC={2:[0,1],3:[0,1,2,4]};
+  function note(t){nt.textContent=t;clearTimeout(note.t);if(t)note.t=setTimeout(function(){nt.textContent=''},4500)}
+  SVC.forEach(function(s,i){
+    var b=document.createElement('button');b.type='button';b.className='svc';b.setAttribute('aria-pressed','false');
+    b.innerHTML='<i></i><b></b><span></span>';
+    b.querySelector('b').textContent=s[0];b.querySelector('span').textContent=brl(s[1]);
+    b.onclick=function(){
+      if(sel[i]){delete sel[i];note('');render();return}
+      var cov=Object.keys(INC).filter(function(m){return sel[m]&&INC[m].indexOf(i)>-1});
+      if(cov.length){note('Já incluído em '+SVC[cov[0]][0]+'.');return}
+      var rem=0;(INC[i]||[]).forEach(function(j){if(sel[j]){delete sel[j];rem++}});
+      sel[i]=1;
+      note(rem?'Os serviços repetidos foram removidos para você não pagar duas vezes.':'');
+      render();
+    };
+    car.appendChild(b);
+  });
+  function chosen(){return SVC.filter(function(_,i){return sel[i]})}
+  function render(){
+    car.querySelectorAll('.svc').forEach(function(b,k){var cv=Object.keys(INC).some(function(m){return sel[m]&&INC[m].indexOf(k)>-1});b.classList.toggle('sel',!!sel[k]);b.classList.toggle('inc',cv);b.setAttribute('aria-pressed',!!sel[k]);b.querySelector('i').textContent=sel[k]?'✓':''});
+    var c=chosen(),t=c.reduce(function(a,s){return a+s[1]},0);
+    sum.hidden=!c.length;env.disabled=!c.length;env.classList.toggle('on',!!c.length);
+    sum.innerHTML='<div class="lbl" style="margin:0">Seu agendamento</div><ul></ul><div class="tot"><span>Total</span><span></span></div>';
+    var ul=sum.querySelector('ul');
+    c.forEach(function(s){var li=document.createElement('li');li.innerHTML='<span></span><span></span>';li.children[0].textContent=s[0];li.children[1].textContent=brl(s[1]);ul.appendChild(li)});
+    sum.querySelector('.tot span:last-child').textContent=brl(t);
+  }
+  function prog(){var w=car.scrollWidth,v=car.clientWidth,pct=Math.min(1,v/w);th.style.width=(pct*100)+'%';th.style.left=((car.scrollLeft/(w-v||1))*(1-pct)*100)+'%'}
+  car.addEventListener('scroll',prog);window.addEventListener('resize',prog);setTimeout(prog,50);
+  env.onclick=function(){
+    var c0=chosen();if(!c0.length)return;
+    panel.innerHTML='';
+    bubble('Quero agendar: '+c0.map(function(s){return s[0]}).join(', ')+' ('+brl(c0.reduce(function(a,s){return a+s[1]},0))+')','me');
+    askDay(nome,c0);
+  };
+  async function askDay(nome,c){
+    await bot('Qual dia você prefere?');
+    var hoje=new Date();hoje.setHours(0,0,0,0);
+    var dias=[];
+    for(var k=0;k<21&&dias.length<14;k++){var x=new Date(hoje);x.setDate(hoje.getDate()+k);if(HORARIO.fechados.indexOf(x.getDay())>-1)continue;if(!slots(x).length)continue;dias.push(x)}
+    var p=el('<div class="panel"><div class="lbl">Selecione o dia:</div><div class="car"></div><button class="send" disabled>Enviar</button></div>');
+    panel.appendChild(p);
+    var cr=p.querySelector('.car'),bt=p.querySelector('.send'),pick=null;
+    dias.forEach(function(x){
+      var b=document.createElement('button');b.type='button';b.className='svc dia';b.innerHTML='<b></b><span></span>';
+      b.querySelector('b').textContent=(x.toDateString()===new Date().toDateString())?'Hoje':SEM[x.getDay()];
+      b.querySelector('span').textContent=fmt(x);
+      b.onclick=function(){pick=x;cr.querySelectorAll('.svc').forEach(function(o){o.classList.remove('sel')});b.classList.add('sel');bt.disabled=false;bt.classList.add('on')};
+      cr.appendChild(b);
+    });
+    bt.onclick=function(){if(!pick)return;panel.innerHTML='';bubble(rotulo(pick),'me');askTime(nome,c,pick)};
+    p.scrollIntoView({behavior:'smooth',block:'end'});
+  }
+  async function askTime(nome,c,dia){
+    await bot('Qual horário você prefere?');
+    var p=el('<div class="panel"><div class="lbl">Selecione o horário:</div><div class="hrs"></div><button class="send" disabled>Enviar</button></div>');
+    panel.appendChild(p);
+    var g=p.querySelector('.hrs'),bt=p.querySelector('.send'),pick='';
+    slots(dia).forEach(function(h){
+      var b=document.createElement('button');b.type='button';b.className='hr';b.textContent=h;
+      b.onclick=function(){pick=h;g.querySelectorAll('.hr').forEach(function(o){o.classList.remove('sel')});b.classList.add('sel');bt.disabled=false;bt.classList.add('on')};
+      g.appendChild(b);
+    });
+    bt.onclick=function(){if(!pick)return;panel.innerHTML='';bubble(pick,'me');finish(nome,c,{dia:rotulo(dia),hora:pick})};
+    p.scrollIntoView({behavior:'smooth',block:'end'});
+  }
+  function finish(nome,c,when){
+    
+    var t=c.reduce(function(a,s){return a+s[1]},0);
+    var names=c.map(function(s){return s[0]}).join(', ');
+    var msg='Olá! Meu nome é '+nome+'. Quero agendar: '+names+'. Total: '+brl(t)+'. Dia: '+when.dia+', às '+when.hora+'.';
+    var url='https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+    
+    var semAbrir=(location.origin==='null');bot(semAbrir?'Perfeito, '+nome+'! Copie a mensagem abaixo e envie para o WhatsApp da barbearia.':'Perfeito, '+nome+'! Vou abrir o WhatsApp para confirmar o seu horário.');
+    fb=document.createElement('div');fb.className='panel fb';panel.appendChild(fb);fb.style.display='block';
+    fb.innerHTML='<div style="background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px"><div class="lbl" style="margin-bottom:8px">Mensagem pronta</div><div id="msg" style="white-space:pre-wrap;color:var(--text);font-size:.95rem"></div><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button type="button" id="cp" class="send on" style="width:auto;margin:0;padding:12px 20px">Copiar mensagem</button><a id="w1" target="_blank" rel="noopener" style="display:inline-block;padding:12px 20px;border-radius:14px;background:linear-gradient(180deg,#70727a,#54565d);color:#fff;text-decoration:none;font-weight:600">Abrir WhatsApp</a></div><div style="margin-top:12px">WhatsApp da barbearia: (11) 98360-0871</div></div>';
+    fb.querySelector('#msg').textContent=msg;fb.querySelector('#w1').href=url;
+    fb.querySelector('#cp').onclick=function(){var b=this;function ok(){b.textContent='Mensagem copiada'}function sl(){var r=document.createRange();r.selectNodeContents(fb.querySelector('#msg'));var s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');ok()}catch(e){b.textContent='Selecione e copie o texto'}}try{navigator.clipboard.writeText(msg).then(ok,sl)}catch(e){sl()}};
+    fb.scrollIntoView({behavior:'smooth',block:'end'});
+    if(!semAbrir)window.open(url,'_blank');
+  };
+}
+trocar.onclick=function(e){e.preventDefault();clearName();start()};
+start();
+</script>
+</body>
+</html>
